@@ -23,3 +23,19 @@ test('returns sum for numbers separated by newline and comma', () => {
 test('returns sum for custom delimiter', () => {
     assert.strictEqual(add('//;\n1;2'), 3)
 })
+
+test('negativee numbers throw an exception', () => {
+    assert.throws(() => {
+        add('-1,2')
+    },
+        new Error('negative numbers not allowed: -1')
+    )
+})
+
+test('multiple negative numbers throws an exception with all negative numbers', () => {
+    assert.throws(() => {
+        add('2, -4, 3, -5')
+    },
+        new Error("negative numbers not allowed: -4,-5")
+    )
+})
