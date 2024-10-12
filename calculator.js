@@ -4,7 +4,8 @@ const add = (numbers = '') => {
         return 0;
     }
 
-    let delimiter = ',';
+    // create defalult delimiter pattern
+    let delimiter = /[,\n]/;
 
     // get numbers by splitting at delimiter
     const nums = numbers.split(delimiter).map(Number);
