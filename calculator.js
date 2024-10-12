@@ -7,6 +7,13 @@ const add = (numbers = '') => {
     // create defalult delimiter pattern
     let delimiter = /[,\n]/;
 
+    // add delimiter from input
+    if (numbers.startsWith('//')) {
+        const delimiterEnd = numbers.indexOf('\n');
+        delimiter = numbers.substring(2, delimiterEnd);
+        numbers = numbers.substring(delimiterEnd + 1);
+    }
+
     // get numbers by splitting at delimiter
     const nums = numbers.split(delimiter).map(Number);
 
